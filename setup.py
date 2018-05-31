@@ -66,6 +66,7 @@ setup(
         'matplotlib==2.2.2',
         'numpy==1.14.3',
         'seaborn==0.8.1',
+        'pandas==0.23.0'
     ],
     extras_require={
         # eg:
