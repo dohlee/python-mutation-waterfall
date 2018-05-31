@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/mutation_waterfall
+   */site-packages/mutation_waterfall
+
+[run]
+branch = true
+source =
+    mutation_waterfall
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
