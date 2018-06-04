@@ -24,7 +24,7 @@ def read(*names, **kwargs):
 
 setup(
     name='mutation-waterfall',
-    version='0.1.0',
+    version='0.1.1',
     license='MIT license',
     description='Python library for visualizing mutation landscape as waterfall diagram.',
     long_description='%s\n%s' % (
