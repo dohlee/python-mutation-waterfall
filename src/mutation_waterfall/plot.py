@@ -5,13 +5,14 @@ import numpy as np
 import mutation_waterfall.preprocess as preprocess
 
 
-def plot(mutation_list_file, num_gene=30, ax=None, file=None):
+def plot(mutation_list_file, n_genes=30, ax=None, file=None):
     """Generates a waterfall plot describing mutational landscape of samples.
 
     Args:
         mutation_list_file: Path to mutation list.
         num_gene: Number of genes to be plotted. (default: 30)
         ax: Matplotlib axis to draw the plot.
+        file: If not None, resulting plot will be saved as an image file.
 
     Returns:
         ax: Axis containing the plot.
@@ -23,11 +24,11 @@ def plot(mutation_list_file, num_gene=30, ax=None, file=None):
         ax = fig.add_subplot(111)
     plt.sca(ax)
 
-    waterfall(binary_matrix, genes, num_gene, ax)
+    waterfall(binary_matrix, genes, n_genes, ax)
 
     plt.tight_layout()
     if file:
-        plt.savefig('test.png', dpi=150)
+        plt.savefig(file, dpi=150)
     else:
         plt.show()
 
@@ -52,7 +53,7 @@ def waterfall(binary_matrix, genes, num_gene, ax):
 
     # Y-axis tick labels
     ax.set_yticks(np.arange(num_gene))
-    percentages = binary_matrix.sum(axis=1) / binary_matrix.shape[1]
+    percentages = binary_matrix.sum(axis=1) / binary_matrix.shape[1] * 100
     yticklabels = ['$%s$ (%.1f%%)' % (genes[ix], percentages[ix]) for ix in row_order[:num_gene]]
     plt.yticks(np.arange(num_gene), yticklabels)
 
