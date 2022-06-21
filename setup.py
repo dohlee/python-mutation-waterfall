@@ -64,7 +64,7 @@ setup(
     install_requires=[
         # eg: 'aspectlib==1.1.1', 'six>=1.7',
         'matplotlib==2.2.2',
-        'numpy==1.14.3',
+        'numpy==1.22.0',
         'seaborn==0.8.1',
         'pandas==0.23.0'
     ],
